@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-apollo-helper",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a babel plugin auto inject grahql query with apollo hoc",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,8 @@
   "files": [
     "index.js",
     "visitor.js",
-    "macro.js"
+    "macro.js",
+    "helpers.js"
   ],
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.7.4",

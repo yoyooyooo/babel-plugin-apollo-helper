@@ -3,8 +3,8 @@
 auto inject graphql query by apollo hoc
 </div>
 
-[![NPM version](https://img.shields.io/npm/v/@rxmodel/core.svg?style=flat)](https://npmjs.org/package/babel-plugin-apollo-helper)
-[![NPM downloads](http://img.shields.io/npm/dm/@rxmodel/core.svg?style=flat)](https://npmjs.org/package/babel-plugin-apollo-helper)
+[![NPM version](https://img.shields.io/npm/v/babel-plugin-apollo-helper.svg?style=flat)](https://npmjs.org/package/babel-plugin-apollo-helper)
+[![NPM downloads](http://img.shields.io/npm/dm/babel-plugin-apollo-helper.svg?style=flat)](https://npmjs.org/package/babel-plugin-apollo-helper)
 
 ## install
 
