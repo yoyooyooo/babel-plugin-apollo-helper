@@ -18,9 +18,27 @@ then `.babelrc`:
 
 ```json
 {
-  "plugins": ["babel-plugin-apollo-helper"]
+  "plugins": [
+    "babel-plugin-apollo-helper",
+    {
+      "packages": [...],
+      "include": [...],
+      "exclude": [...]
+    }
+  ]
 }
 ```
+
+`config.packages` default is :
+
+```json
+"packages": [
+  { "specifier": "graphql", "source": "@apollo/react-hoc" },
+  { "specifier": "compose", "source": "lodash/flowRight" }
+]
+```
+
+you can overide your custom graphql and compose
 
 ## usage
 

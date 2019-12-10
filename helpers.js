@@ -1,23 +1,22 @@
-const template = require('@babel/template');
+const _ = require('lodash');
+const t = require('@babel/types');
 
-function createGraphql(
-  { path, options = {}, t },
-  query,
-  name,
-  restOptions = []
-) {
+function createGraphql({ path, options = {} }, query, name, restOptions = []) {
   const matchedGraphql =
     options.packages && options.packages.find(a => a.specifier === 'graphql');
   const matchedOptionName = restOptions.find(a => a.key.name === 'name');
+  const requireNode = t.memberExpression(
+    t.callExpression(t.Identifier('require'), [
+      t.stringLiteral(
+        (matchedGraphql && matchedGraphql.source) || '@apollo/react-hoc'
+      )
+    ]),
+    t.identifier('graphql')
+  );
   return t.callExpression(
     path.scope.bindings.graphql
       ? path.scope.bindings.graphql.identifier
-      : t.toExpression(
-          template.default(
-            `require("${(matchedGraphql && matchedGraphql.source) ||
-              '@apollo/react-hoc'}").graphql`
-          )()
-        ),
+      : t.toExpression(requireNode),
     [
       query,
       t.objectExpression([
@@ -34,10 +33,11 @@ exports.createGraphql = createGraphql;
 exports.injectGql = function(
   { t, options = {} },
   outerPath,
-  injectedPath,
+  targetPath,
   component
 ) {
   let graphqls = [];
+  const indexes = [];
   outerPath.container.forEach((node, i) => {
     if (t.isExportNamedDeclaration(node)) {
       if (node.declaration) {
@@ -72,19 +72,24 @@ exports.injectGql = function(
               queryArgs[1] ? queryArgs[1].properties : []
             )
           );
-          outerPath.scope.bindings[name].references < 2 &&
-            (outerPath.container[i] = null);
+          if (outerPath.scope.bindings[name].references < 2) {
+            // outerPath.container[i] = null;
+            // node.parentPath.remove();
+            indexes.push(i);
+          }
         }
       } else if (node.source && /\.(gql|graphql)$/.test(node.source.value)) {
         node.specifiers.forEach(specifier => {
+          const requireNode = t.memberExpression(
+            t.callExpression(t.Identifier('require'), [
+              t.stringLiteral(node.source.value)
+            ]),
+            t.identifier(specifier.exported.name)
+          );
           graphqls.push(
             createGraphql(
               { path: outerPath, t },
-              t.toExpression(
-                template.default(
-                  `require('${node.source.value}').${specifier.exported.name}`
-                )()
-              ),
+              requireNode,
               t.stringLiteral(specifier.exported.name)
             )
           );
@@ -95,18 +100,19 @@ exports.injectGql = function(
   if (graphqls.length) {
     const matchedCompose =
       options.packages && options.packages.find(a => a.specifier === 'compose');
-    injectedPath.replaceWith(
+    const requireNode = t.callExpression(t.Identifier('require'), [
+      t.stringLiteral(
+        (matchedCompose && matchedCompose.source) || 'lodash/flowRight'
+      )
+    ]);
+    _.remove(outerPath.container, (a, i) => indexes.includes(i));
+    targetPath.replaceWith(
       t.callExpression(
         graphqls.length > 1
           ? t.callExpression(
               outerPath.scope.bindings.compose
                 ? outerPath.scope.bindings.compose.identifier
-                : t.toExpression(
-                    template.default(
-                      `require("${(matchedCompose && matchedCompose.source) ||
-                        'lodash/flowRight'}")`
-                    )()
-                  ),
+                : requireNode,
               graphqls
             )
           : graphqls[0],

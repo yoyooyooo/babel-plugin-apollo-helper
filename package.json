@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-apollo-helper",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a babel plugin auto inject grahql query with apollo hoc",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "@babel/core": "^7.7.5",
     "@babel/generator": "^7.7.4",
     "@babel/parser": "^7.7.5",
+    "@babel/plugin-syntax-jsx": "^7.7.4",
     "@babel/traverse": "^7.7.4",
     "@babel/types": "^7.7.4",
     "babel-plugin-tester": "^8.0.1",
@@ -32,10 +33,9 @@
     "helpers.js"
   ],
   "dependencies": {
-    "@babel/plugin-syntax-jsx": "^7.7.4",
-    "@babel/runtime": "^7.7.6",
     "@babel/template": "^7.7.4",
-    "babel-plugin-macros": "^2.8.0"
+    "babel-plugin-macros": "^2.8.0",
+    "lodash": "^4.17.15"
   },
   "bugs": {
     "url": "https://github.com/yoyooyooo/babel-plugin-apollo-helper/issues"

@@ -58,6 +58,50 @@ pluginTester.default({
         }
       \`;
       export default autoInjectGql(App);
+    `,
+    'with config': `
+      import autoInjectGql from "./macro";
+      import { graphql } from '@apollo/react-hoc';
+      import compose from 'lodash/flowRight';
+
+      const App = props => {
+        return (
+          <div>
+            <span>1</span>
+          </div>
+        );
+      };
+
+      export const query = [gql\`
+        query queryDemo {
+          a {
+            b
+          }
+        }
+      \`, { a: 1, b: 2}];
+      export default autoInjectGql(App);
+    `,
+    'override config.name': `
+      import autoInjectGql from "./macro";
+      import { graphql } from '@apollo/react-hoc';
+      import compose from 'lodash/flowRight';
+
+      const App = props => {
+        return (
+          <div>
+            <span>1</span>
+          </div>
+        );
+      };
+
+      export const query = [gql\`
+        query queryDemo {
+          a {
+            b
+          }
+        }
+      \`, { name: "customName" }];
+      export default autoInjectGql(App);
     `
   }
 });
