@@ -125,6 +125,56 @@ export default compose(
 
 `;
 
+exports[`apollo-helper inline: inline 1`] = `
+
+import autoInjectGql from "./macro";
+import { graphql } from '@apollo/react-hoc';
+import compose from 'lodash/flowRight';
+
+const App = autoInjectGql(props => {
+  return (
+    <div>
+      <span>1</span>
+    </div>
+  );
+});
+
+export const query = gql\`
+  query queryDemo {
+    a {
+      b
+    }
+  }
+\`;
+export default App;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { graphql } from '@apollo/react-hoc';
+import compose from 'lodash/flowRight';
+const App = graphql(
+  gql\`
+    query queryDemo {
+      a {
+        b
+      }
+    }
+  \`,
+  {
+    name: 'query'
+  }
+)(props => {
+  return (
+    <div>
+      <span>1</span>
+    </div>
+  );
+});
+export default App;
+
+
+`;
+
 exports[`apollo-helper override config.name: override config.name 1`] = `
 
 import autoInjectGql from "./macro";

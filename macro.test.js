@@ -102,6 +102,28 @@ pluginTester.default({
         }
       \`, { name: "customName" }];
       export default autoInjectGql(App);
+    `,
+    inline: `
+      import autoInjectGql from "./macro";
+      import { graphql } from '@apollo/react-hoc';
+      import compose from 'lodash/flowRight';
+
+      const App = autoInjectGql(props => {
+        return (
+          <div>
+            <span>1</span>
+          </div>
+        );
+      });
+
+      export const query = gql\`
+        query queryDemo {
+          a {
+            b
+          }
+        }
+      \`;
+      export default App;
     `
   }
 });

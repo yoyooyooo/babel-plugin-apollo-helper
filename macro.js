@@ -6,7 +6,8 @@ module.exports = createMacro(({ references, state, babel }) => {
   references.default.forEach(path => {
     if (path.parentPath && t.isCallExpression(path.parentPath)) {
       const component = path.parentPath.get('arguments')[0].node;
-      injectGql({ t }, path.parentPath.parentPath, path.parentPath, component);
+
+      injectGql({ t }, path.getStatementParent(), path.parentPath, component);
     }
   });
 });

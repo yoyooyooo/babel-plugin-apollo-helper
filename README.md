@@ -21,9 +21,9 @@ then `.babelrc`:
   "plugins": [
     "babel-plugin-apollo-helper",
     {
-      "packages": [...],
-      "include": [...],
-      "exclude": [...]
+      "packages": Array<{specifier: string, source: string}>,
+      "include": Regex[],
+      "exclude": Regex[]
     }
   ]
 }
@@ -104,9 +104,11 @@ more usages can see [feature](https://github.com/yoyooyooo/babel-plugin-apollo-h
 
 ### usage
 
+anything be wrapped by autoInjectGql will be injected graphql queries which is exported in current js.
+
 ```jsx
 import { graphql } from '@apollo/react-hoc';
-import { autoInjectGql } from 'babel-plugin-apollo-helper/macro';
+import autoInjectGql from 'babel-plugin-apollo-helper/macro';
 
 export default autoInjectGql(props => {
   return (
