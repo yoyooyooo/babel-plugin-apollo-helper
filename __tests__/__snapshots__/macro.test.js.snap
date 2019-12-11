@@ -2,7 +2,7 @@
 
 exports[`apollo-helper 1 query: 1 query 1`] = `
 
-import autoInjectGql from "../macro";
+import { autoInjectGql } from "../macro";
 import { graphql } from '@apollo/react-hoc';
 import compose from 'lodash/flowRight';
 
@@ -54,7 +54,7 @@ export default graphql(
 
 exports[`apollo-helper 2 query: 2 query 1`] = `
 
-import autoInjectGql from "../macro";
+import { autoInjectGql } from "../macro";
 import { graphql } from '@apollo/react-hoc';
 import compose from 'lodash/flowRight';
 
@@ -127,7 +127,7 @@ export default compose(
 
 exports[`apollo-helper inline: inline 1`] = `
 
-import autoInjectGql from "../macro";
+import { autoInjectGql } from "../macro";
 import { graphql } from '@apollo/react-hoc';
 import compose from 'lodash/flowRight';
 
@@ -177,7 +177,7 @@ export default App;
 
 exports[`apollo-helper override config.name: override config.name 1`] = `
 
-import autoInjectGql from "../macro";
+import { autoInjectGql } from "../macro";
 import { graphql } from '@apollo/react-hoc';
 import compose from 'lodash/flowRight';
 
@@ -229,7 +229,7 @@ export default graphql(
 
 exports[`apollo-helper with config: with config 1`] = `
 
-import autoInjectGql from "../macro";
+import { autoInjectGql } from "../macro";
 import { graphql } from '@apollo/react-hoc';
 import compose from 'lodash/flowRight';
 

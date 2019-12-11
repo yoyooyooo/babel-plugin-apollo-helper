@@ -9,7 +9,7 @@ pluginTester.default({
   babelOptions: { filename: __filename, parserOpts: { plugins: ['jsx'] } },
   tests: {
     '1 query': `
-      import autoInjectGql from "../macro";
+      import { autoInjectGql } from "../macro";
       import { graphql } from '@apollo/react-hoc';
       import compose from 'lodash/flowRight';
 
@@ -31,7 +31,7 @@ pluginTester.default({
       export default autoInjectGql(App);
     `,
     '2 query': `
-      import autoInjectGql from "../macro";
+      import { autoInjectGql } from "../macro";
       import { graphql } from '@apollo/react-hoc';
       import compose from 'lodash/flowRight';
 
@@ -60,7 +60,7 @@ pluginTester.default({
       export default autoInjectGql(App);
     `,
     'with config': `
-      import autoInjectGql from "../macro";
+      import { autoInjectGql } from "../macro";
       import { graphql } from '@apollo/react-hoc';
       import compose from 'lodash/flowRight';
 
@@ -82,7 +82,7 @@ pluginTester.default({
       export default autoInjectGql(App);
     `,
     'override config.name': `
-      import autoInjectGql from "../macro";
+      import { autoInjectGql } from "../macro";
       import { graphql } from '@apollo/react-hoc';
       import compose from 'lodash/flowRight';
 
@@ -104,7 +104,7 @@ pluginTester.default({
       export default autoInjectGql(App);
     `,
     inline: `
-      import autoInjectGql from "../macro";
+      import { autoInjectGql } from "../macro";
       import { graphql } from '@apollo/react-hoc';
       import compose from 'lodash/flowRight';
 
