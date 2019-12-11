@@ -1,4 +1,4 @@
-English | [简体中文](./README_zh-CN.md)
+[English](./README.md) | 简体中文
 
 <div align="center">
 <h1>babel-plugin-apollo-helper</h1>
