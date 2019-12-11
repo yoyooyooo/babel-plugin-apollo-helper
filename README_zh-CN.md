@@ -5,6 +5,8 @@
 使用Apollo的时候，自动把graphql查询注入hoc
 </div>
 
+[![Build Status](https://travis-ci.org/yoyooyooo/babel-plugin-apollo-helper.svg?branch=master)](https://travis-ci.org/yoyooyooo/babel-plugin-apollo-helper)
+[![codecov](https://codecov.io/gh/yoyooyooo/babel-plugin-apollo-helper/branch/master/graph/badge.svg)](https://codecov.io/gh/yoyooyooo/babel-plugin-apollo-helper)
 [![NPM version](https://img.shields.io/npm/v/babel-plugin-apollo-helper.svg?style=flat)](https://npmjs.org/package/babel-plugin-apollo-helper)
 [![NPM downloads](http://img.shields.io/npm/dm/babel-plugin-apollo-helper.svg?style=flat)](https://npmjs.org/package/babel-plugin-apollo-helper)
 
