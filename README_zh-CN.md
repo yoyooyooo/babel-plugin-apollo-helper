@@ -2,13 +2,13 @@
 
 <div align="center">
 <h1>babel-plugin-apollo-helper</h1>
-auto inject graphql query by apollo hoc
+使用Apollo的时候，自动把graphql查询注入hoc
 </div>
 
 [![NPM version](https://img.shields.io/npm/v/babel-plugin-apollo-helper.svg?style=flat)](https://npmjs.org/package/babel-plugin-apollo-helper)
 [![NPM downloads](http://img.shields.io/npm/dm/babel-plugin-apollo-helper.svg?style=flat)](https://npmjs.org/package/babel-plugin-apollo-helper)
 
-## install
+## 安装
 
 ```shell
 npm i -D babel-plugin-apollo-helper
@@ -16,7 +16,7 @@ npm i -D babel-plugin-apollo-helper
 yarn add -D babel-plugin-apollo-helper
 ```
 
-then `.babelrc`:
+`.babelrc`配置:
 
 ```js
 {
@@ -31,7 +31,7 @@ then `.babelrc`:
 }
 ```
 
-`config.packages` default is :
+`config.packages` 默认 :
 
 ```js
 packages: [
@@ -40,11 +40,11 @@ packages: [
 ];
 ```
 
-you can overide your custom graphql and compose
+你可以设置覆盖默认的 graphql 和 compose 来源
 
-## usage
+## 简单用法
 
-input:
+输入:
 
 ```jsx
 import { graphql } from '@apollo/react-hoc';
@@ -66,7 +66,7 @@ export const query = gql`
 `;
 ```
 
-output:
+输出:
 
 ```jsx
 import { graphql } from '@apollo/react-hoc';
@@ -90,11 +90,11 @@ export default graphql(
 });
 ```
 
-more usages can see [feature](https://github.com/yoyooyooo/babel-plugin-apollo-helper/tree/master/__fixtures__)
+更多用法查看 [feature](https://github.com/yoyooyooo/babel-plugin-apollo-helper/tree/master/__fixtures__)
 
-## with babel-plugin-macros
+## babel-plugin-macros 版本
 
-### install
+### 必须安装 babel-plugin-macros
 
 `.babelrc`
 
@@ -104,9 +104,9 @@ more usages can see [feature](https://github.com/yoyooyooo/babel-plugin-apollo-h
 }
 ```
 
-### usage
+### 用法
 
-anything be wrapped by autoInjectGql will be injected graphql queries which is exported in current js.
+任何被 export 的 graphql 查询都会通过 hoc 的方式被注入被`autoInjectGql`包裹的组件
 
 ```jsx
 import { graphql } from '@apollo/react-hoc';
