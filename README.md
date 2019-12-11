@@ -92,7 +92,7 @@ export default graphql(
 });
 ```
 
-more usages can see [feature](https://github.com/yoyooyooo/babel-plugin-apollo-helper/tree/master/__fixtures__)
+more usages can see [feature](https://github.com/yoyooyooo/babel-plugin-apollo-helper/tree/master/__test__/__fixtures__)
 
 ## with babel-plugin-macros
 
