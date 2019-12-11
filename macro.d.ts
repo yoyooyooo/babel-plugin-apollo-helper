@@ -1,1 +1,1 @@
-export default function<T = React.ComponentType>(component: T): T;
+export function autoInjectGql<T = React.ComponentType>(component: T): T;

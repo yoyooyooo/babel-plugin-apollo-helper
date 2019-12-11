@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-apollo-helper",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "a babel plugin auto inject grahql query with apollo hoc",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "babel",
     "babel-plugin",
     "babel-macros",
-    "babel-plugin-macros"
+    "babel-plugin-macros",
+    "apollo"
   ],
   "author": "jihu777@gmail.com",
   "license": "MIT",

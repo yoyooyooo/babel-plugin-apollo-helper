@@ -3,7 +3,7 @@ const { injectGql } = require('./helpers');
 
 module.exports = createMacro(({ references, state, babel }) => {
   const t = babel.types;
-  references.default.forEach(path => {
+  references.autoInjectGql.forEach(path => {
     if (path.parentPath && t.isCallExpression(path.parentPath)) {
       const component = path.parentPath.get('arguments')[0].node;
 
