@@ -130,3 +130,6 @@ export const query = gql`
   }
 `;
 ```
+
+> tips: If you want to compile GraphQL AST at build-time when use this macro, you should use `graphql.macro` rather than `babel-plugin-graphql-tag`,
+> and make ensure `graphql.macro` is after `babel-plugin-apollo-helper/macro` when import.

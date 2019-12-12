@@ -130,3 +130,5 @@ export const query = gql`
   }
 `;
 ```
+
+> 注意：如果你要在编译时生成 ast，请使用`graphql.macro` 代替 `babel-plugin-graphql-tag`，并且保证引入时`graphql.macro` 在 `babel-plugin-apollo-helper/macro`下面
